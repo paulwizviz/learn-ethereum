@@ -1,0 +1,23 @@
+
+Vagrant.configure("2") do |config|
+    config.vm.box = "ubuntu/trusty64"
+    #config.vm.box_version = "1.0.282"
+
+    config.vm.provider "virtualbox" do |vb|
+        vb.gui = true
+        vb.memory = "2048"
+
+        config.vm.synced_folder "./setup", "/home/vagrant/setup", type: "virtualbox"
+        config.vm.synced_folder "./data", "/home/vagrant/data", type: "virtualbox"
+    end
+
+    config.vm.provision "shell", inline: <<-SHELL
+        apt update
+        apt install -y gcc
+        apt install -y g++
+        apt install -y nodejs
+        apt install -y npm
+        apt install -y git
+        wget -c https://dl.google.com/go/go1.16.2.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local/lib
+    SHELL
+end

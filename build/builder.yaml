@@ -1,0 +1,9 @@
+version: '3.4'
+
+services:
+
+  gethclient:
+    build:
+      context: ../
+      dockerfile: ./build/gethclient.dockerfile
+    image: ${GETH_CLIENT_IMAGE_NAME}
