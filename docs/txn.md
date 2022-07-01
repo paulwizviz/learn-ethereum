@@ -1,6 +1,6 @@
 # Transactions
 
-[Overview](https://ethereum.org/en/developers/docs/transactions/)
+Transactions are cryptographically signed instructions from accounts. An account will initiate a transaction to update the state of the Ethereum network. The simplest transaction is transferring ETH from one account to another. ([source](https://ethereum.org/en/developers/docs/transactions/))
 
 There are 
 

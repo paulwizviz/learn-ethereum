@@ -1,8 +1,6 @@
 # Accounts
 
-[Overview](https://ethereum.org/en/developers/docs/accounts/)
-
-## Ethereum Address
+An Ethereum account is an entity with an ether (ETH) balance that can send transactions on Ethereum. Accounts can be user-controlled or deployed as smart contracts ([source](https://ethereum.org/en/developers/docs/accounts/)).
 
 ## Externally Owned Address
 
@@ -27,7 +25,3 @@ Contract address refers to the address hosting a collection of code on the Ether
     * [EncryptKey](https://github.com/ethereum/go-ethereum/blob/fb3a6528cfa49f623570575c4fe9e8a716cfcdf7/accounts/keystore/passphrase.go#L186)
     * [EncryptDataV3](https://github.com/ethereum/go-ethereum/blob/fb3a6528cfa49f623570575c4fe9e8a716cfcdf7/accounts/keystore/passphrase.go#L141)
     * [Keccak256](https://github.com/ethereum/go-ethereum/blob/fb3a6528cfa49f623570575c4fe9e8a716cfcdf7/crypto/crypto.go#L77)
-
-## References
-
-[What is an Ethereum Address?](https://info.etherscan.com/what-is-an-ethereum-address/#:~:text=An%20Ethereum%20address%20is%20a,receive%20funds%20from%20another%20party.)

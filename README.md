@@ -1,40 +1,68 @@
 # Overview
 
-[Introduction](https://ethereum.org/en/developers/docs/intro-to-ethereum/)
+Welcome to my collection of original (created by me) and reference to materials (created by others) about Ethereum.
 
-* Ethereum, taken as a whole, can be viewed as a
-transaction-based state machine: we begin with a genesis state and incrementally execute transactions to morph it into some current state.
+## Ethereum in a nutshell
 
-* The state can include such information as account balances, reputations, trust arrangements, data pertaining to information of the physical world; in short, anything that can currently be represented by a computer is admissible.
+Ethereum is a kind of transaction-based state machine where each machine is hosted on decentralised and independently executing computing nodes. The machine operations begins with a genesis state and incrementally mutating by executing transactions into some current state.
 
-* Transactions thus represent a valid arc between two states; the ‘valid’ part is important—there exist far more invalid state changes than valid state changes. Invalid state changes might, e.g., be things such as reducing an account balance without an equal and opposite increase elsewhere.
+The state can include such information about a physical thing (e.g. house, cars) or an intangible thing (e.g. money, reputation) that can be represented by a computer.
 
-* Transactions are collated into blocks; blocks are chained together using a cryptographic hash as a means of reference.
+A transaction represents a cryptographically signed action (e.g. transfer ownership of a property) initiated by a human or some computational data source via an agent. An agent, also known as ABI (Application Binary Interface) is an interface between the initiator of a transaction and the Ethereum state machine.
 
-* Blocks function as a journal, recording a series of transactions together with the previous block and an identifier for the final state (though do not store the final state itself—that would be far too big). They also punctuate the transaction series with incentives for nodes to mine. This incentivisation takes place as a state-transition function, adding value to a nominated account.
+A transaction can be viewed as a connection between two states. It can be viewed as transitioning one state to another valid state or invalid state. A valid state is one where its relationship to prior states is consistent. An invalud state is one that is not consistent with prior states. Each state machine in the network of state machines is responsible for validing transaction. There is no single machine to validate transactions on behalf of every machines.
 
-* Mining is the process of dedicating effort (working) to bolster one series of transactions (a block) over any other potential competitor block.
+Transactions are collated into blocks through a process known as minimg (via a process known as Proof-of-Work) or minting (via a process known as Proof-of-Stake). The machine are rewarded with a sum of reward denominated in Ether when it collate the transactions into blocks.
 
-## Components
+Blocks are chained together using a cryptographic hash as a means of reference. Blocks function as a journal, recording a series of transactions together with the previous block and an identifier for the final state.
 
-* [Accounts](./docs/acct.md)
-* [Blocks](./docs/blocks.md)
-* [Crypto](./docs/crypto.md)
-* [DApp](./docs/dapp.md)
-* [Ethereum Virtual Machine](./docs/evm.md)
-* [Ether](./docs/ether.md)
-* [Nodes](./docs/nodes.md)
-* [Smart contracts](./docs/smart.md)
-* [Transactions](./docs/txn.md)
-* [Wallet](./docs/wallet) - topics discussing the inner workings of wallets and interaction with Ethereum.
-
-## Official Documentation
+For further details, please refer to the following documents:
 
 * [Beige paper](https://github.com/chronaeon/beigepaper/blob/master/beigepaper.pdf)
 * [Yellow paper](https://ethereum.github.io/yellowpaper/paper.pdf)
 * [White paper](https://ethereum.org/en/whitepaper/)
+* [Introduction to Ethereum](https://ethereum.org/en/developers/docs/intro-to-ethereum/)
+* [Mastering Ethereum](https://cypherpunks-core.github.io/ethereumbook/)
+
+## Topics
+
+The topics covered here are:
+
+### Governance
+
+* [Introduction to Ethereum governance](https://arvanaghi.com/blog/explaining-the-genesis-block-in-ethereum/)
 * [Ethereum Improvement Process](https://eips.ethereum.org/all)
 
-## Other information
+### Agent or application developments
 
-* [Mastering Ethereum](https://cypherpunks-core.github.io/ethereumbook/)
+* [DApp](./docs/dapp.md)
+* [Smart contracts](./docs/smart.md)
+* [Wallet](./docs/wallets.md)
+
+### Platform engineering
+
+* [Setting up a node and network](./docs/network.md)
+* [Orchestration tools](./docs/orchtool.md)
+
+### System internals
+
+* [Accounts](./docs/acct.md)
+* [Blocks](./docs/blocks.md)
+* [Cryptographic tools](./docs/crypto.md)
+* [Ethereum Virtual Machine](./docs/evm.md)
+* [Transactions](./docs/txn.md)
+
+## Disclaimer
+
+* The contents in this project are intended for educational purpose only.
+* This contents are constantly updated and items may be removed and modified without warning.
+
+## Copyright
+
+Unless otherwise specificed, the copyright in this project are assigned as follows.
+
+Copyright 2022 Paul Sitoh
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
