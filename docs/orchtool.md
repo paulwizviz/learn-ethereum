@@ -4,22 +4,31 @@ Please refer to this [doc](https://geth.ethereum.org/docs/) for description of o
 
 ## Geth
 
-This list of commands options is [here](https://geth.ethereum.org/docs/interface/command-line-options)
+Geth is a command line tool to help you initialise, start and stop Ethereum nodes.
+
+Geth commands and flags are listed [here](https://geth.ethereum.org/docs/interface/command-line-options)
 
 ### Source code
 
 * [Geth cli entrypoint](https://github.com/ethereum/go-ethereum/blob/de1cecb22e2a18ad70d4cb92bee122f4549c5b79/cmd/geth/main.go#L266). The entry point uses a cli development call [urfave/cli](https://cli.urfave.org/v2/).
+
+Cli commands and flags:
+
 * [List of commands](https://github.com/ethereum/go-ethereum/blob/master/cmd/geth/chaincmd.go)
 * [List of flags](https://github.com/ethereum/go-ethereum/blob/de1cecb22e2a18ad70d4cb92bee122f4549c5b79/cmd/utils/flags.go#L81). These flags are shared by all apps under the `cmd` folders.
 
+
+Node operations:
 * [Run node command](https://github.com/ethereum/go-ethereum/blob/de1cecb22e2a18ad70d4cb92bee122f4549c5b79/cmd/geth/main.go#L343)
 
 ## Puppeth
 
 Puppeth is a tool to help you manage genesis block.
 
-To learn more about this use of Puppeth please refer to this [using Puppeth, the Ethereum Private Network Manager](https://www.sitepoint.com/puppeth-introduction/).
+Please refer to [using Puppeth, the Ethereum Private Network Manager](https://www.sitepoint.com/puppeth-introduction/) for more information.
 
 ### Source code
 
-* [Wizard](https://github.com/ethereum/go-ethereum/blob/afe344bcf31bfb477a6e1ad5b862a70fc5c1a22b/cmd/puppeth/wizard_genesis.go#L39)
+The entrypoint is [here](https://github.com/ethereum/go-ethereum/blob/de1cecb22e2a18ad70d4cb92bee122f4549c5b79/cmd/puppeth/puppeth.go#L31)
+
+The cli kicks off a [wizard](https://github.com/ethereum/go-ethereum/blob/afe344bcf31bfb477a6e1ad5b862a70fc5c1a22b/cmd/puppeth/wizard_genesis.go#L39) to enable use specific ethereum network configuration.
