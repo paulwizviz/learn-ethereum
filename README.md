@@ -26,25 +26,23 @@ For further details, please refer to the following documents:
 
 ## Topics
 
-The topics covered here are:
-
-### Governance
+<u>Governance</u>
 
 * [Introduction to Ethereum governance](https://arvanaghi.com/blog/explaining-the-genesis-block-in-ethereum/)
 * [Ethereum Improvement Process](https://eips.ethereum.org/all)
 
-### Agent or application developments
+</u>Agent or application developments</u>
 
 * [DApp](./docs/dapp.md)
 * [Smart contracts](./docs/smart.md)
 * [Wallet](./docs/wallets.md)
 
-### Platform engineering
+<u>Platform engineering</u>
 
-* [Setting up a node and network](./docs/network.md)
+* [Setting up a node and private network](./docs/network.md)
 * [Orchestration tools](./docs/orchtool.md)
 
-### System internals
+<u>System internals</u>
 
 * [Accounts](./docs/acct.md)
 * [Blocks](./docs/blocks.md)

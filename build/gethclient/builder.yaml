@@ -4,6 +4,6 @@ services:
 
   gethclient:
     build:
-      context: ../
-      dockerfile: ./build/gethclient.dockerfile
+      context: ../../
+      dockerfile: ./build/gethclient/gethclient.dockerfile
     image: ${GETH_CLIENT_IMAGE_NAME}

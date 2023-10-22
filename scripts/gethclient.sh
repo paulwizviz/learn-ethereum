@@ -7,7 +7,7 @@ COMMAND=$1
 
 case $COMMAND in
     "build")
-        docker-compose -f ./build/builder.yaml build
+        docker-compose -f ./build/gethclient/builder.yaml build
         ;;
     "clean")
         docker rm -f ${GETH_CLIENT_CONTAINER_NAME} 
@@ -15,7 +15,7 @@ case $COMMAND in
         docker rmi -f $(docker images --filter "dangling=true" -q)
         ;;
     "shell")
-        docker run -it --name ${GETH_CLIENT_CONTAINER_NAME} --rm -w /root ${GETH_CLIENT_IMAGE_NAME} /bin/bash
+        docker run -it --name ${GETH_CLIENT_CONTAINER_NAME} -v ./tmp:/root/data --rm -w /root ${GETH_CLIENT_IMAGE_NAME} /bin/bash
         ;;
     *)
         echo "Usage; $0 <Command>"
