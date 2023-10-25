@@ -1,4 +1,4 @@
-package block
+package genesis
 
 import (
 	"encoding/json"
@@ -83,7 +83,7 @@ func cliqueExtraData(signerAddr string) ([]byte, error) {
 	return []byte(extra), nil
 }
 
-func CreateCliqueGenesis(chainID uint64, period uint64, epoch uint64, difficulty uint64, gasLimit uint64, signerAddr string, addrBals []AddressBalance) ([]byte, error) {
+func CreateClique(chainID uint64, period uint64, epoch uint64, difficulty uint64, gasLimit uint64, signerAddr string, addrBals []AddressBalance) ([]byte, error) {
 	genesis := initGenesis()
 	genesis.Config.ChainID = big.NewInt(int64(chainID))
 	genesis.Config.Clique = &params.CliqueConfig{
@@ -109,7 +109,7 @@ func CreateCliqueGenesis(chainID uint64, period uint64, epoch uint64, difficulty
 	return result, nil
 }
 
-func CreateEthashGenesis(chainID uint64, difficulty uint64, gasLimit uint64, addrBals []AddressBalance) ([]byte, error) {
+func CreateEthash(chainID uint64, difficulty uint64, gasLimit uint64, addrBals []AddressBalance) ([]byte, error) {
 	genesis := initGenesis()
 	genesis.Config.ChainID = big.NewInt(int64(chainID))
 	genesis.Config.Ethash = new(params.EthashConfig)

@@ -3,13 +3,13 @@ version: '3.7'
 services:
 
   admin:
-    image: ${ETH_ADMIN_IMAGE_NAME}
+    image: ${ETH_NODE_IMAGE_NAME}
     container_name: admin
     working_dir: /root
-    ports:
-      - 30303:30303
     volumes:
-      - ./tmp:/root/admin
+      - ./network:/root/network
+      - ./genesis.json:/root/network/genesis.json
+      - ./provision.sh:/root/provision.sh
     networks:
       - local
   
@@ -17,7 +17,7 @@ services:
     image: ${ETH_NODE_IMAGE_NAME}
     container_name: node1
     volumes:
-      - ./tmp/node1:/root/keystore
+      - ./network/node1:/root/data
     networks:
       - local
 
@@ -25,7 +25,15 @@ services:
     image: ${ETH_NODE_IMAGE_NAME}
     container_name: node2
     volumes:
-      - ./tmp/node2:/root/keystore
+      - ./network/node2:/root/data
+    networks:
+      - local
+  
+  bootnode:
+    image: ${ETH_NODE_IMAGE_NAME}
+    container_name: bootnode
+    volumes:
+      - ./network/bootnode:/root/bootnode
     networks:
       - local
 
