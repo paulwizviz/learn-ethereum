@@ -6,7 +6,10 @@ Ethereum is a distributed network of computers (known as nodes) running software
 
 Please refer to the [official docs](https://geth.ethereum.org/docs/fundamentals/private-network) describing the steps to create a private network.
 
-In the context of this project, we'll demonstrate a private setup using [Docker Compose](../deployments/private/docker-compose.yaml).
+In the context of this project, we'll demonstrate a private setup using [Docker Compose](../deployments/private/docker-compose.yaml). The steps for this context are:
+
+1. Login to a network admin node via `./scripts/private.sh admin`
+1. Create nodes data folders.
 
 ## Additional references
 

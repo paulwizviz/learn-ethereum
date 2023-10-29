@@ -6,4 +6,8 @@ services:
     build:
       context: ../../
       dockerfile: ./build/gethclient/gethclient.dockerfile
+      args:
+        GETH_VER: release/1.10
+        GO_VER: 1.21.3
+        OS_VER: 22.04
     image: ${GETH_CLIENT_IMAGE_NAME}

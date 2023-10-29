@@ -5,7 +5,9 @@ import (
 	"errors"
 	"fmt"
 	"math/big"
+	"regexp"
 	"strconv"
+	"strings"
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core"
@@ -19,6 +21,8 @@ const (
 
 var (
 	ErrNotHex = errors.New("not hex number")
+
+	ErrStringToAB = errors.New("unable to parse string to address balance")
 )
 
 func initGenesis() *core.Genesis {
@@ -73,40 +77,18 @@ func parseAddressBalances(addrBals []AddressBalance) (core.GenesisAlloc, error) 
 	return gAlloc, nil
 }
 
-func cliqueExtraData(signerAddr string) ([]byte, error) {
-	prefix := "0x00000000000000000000000000000000"
-	postfix := "00000000000000000000000000000000000000000000000000000000000000000"
-	if !common.IsHexAddress(signerAddr) {
-		return nil, fmt.Errorf("%w-%s", ErrNotHex, fmt.Sprintf("input value: %s", signerAddr))
+func stringToAddrBal(s string) (AddressBalance, error) {
+	regExp := "[a-fA-F0-9]{40}:[0-9]+"
+	re := regexp.MustCompile(regExp)
+	if !re.MatchString(s) {
+		return AddressBalance{}, fmt.Errorf("%w-input: %s", ErrStringToAB, s)
 	}
-	extra := prefix + signerAddr + postfix
-	return []byte(extra), nil
-}
-
-func CreateClique(chainID uint64, period uint64, epoch uint64, difficulty uint64, gasLimit uint64, signerAddr string, addrBals []AddressBalance) ([]byte, error) {
-	genesis := initGenesis()
-	genesis.Config.ChainID = big.NewInt(int64(chainID))
-	genesis.Config.Clique = &params.CliqueConfig{
-		Period: period,
-		Epoch:  epoch,
+	ab := strings.Split(s, ":")
+	addrBal := AddressBalance{
+		Address: ab[0],
+		Balance: ab[1],
 	}
-	genesis.Difficulty = big.NewInt(int64(difficulty))
-	genesis.GasLimit = gasLimit
-	eData, err := cliqueExtraData(signerAddr)
-	if err != nil {
-		return nil, err
-	}
-	genesis.ExtraData = eData
-	alloc, err := parseAddressBalances(addrBals)
-	if err != nil {
-		return nil, err
-	}
-	genesis.Alloc = alloc
-	result, err := json.Marshal(genesis)
-	if err != nil {
-		return nil, err
-	}
-	return result, nil
+	return addrBal, nil
 }
 
 func CreateEthash(chainID uint64, difficulty uint64, gasLimit uint64, addrBals []AddressBalance) ([]byte, error) {

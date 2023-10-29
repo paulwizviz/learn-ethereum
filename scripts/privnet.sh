@@ -1,13 +1,17 @@
 #!/bin/bash
 
 export ETH_NODE_IMAGE_NAME="learn-ethereum/node:current"
+export ETH_ADMIN_NODE="admin"
 export NETWORK_NAME="learn-ethereum_private-network"
 
 COMMAND=$1
 
 case $COMMAND in
     "admin")
-        docker-compose -f ./deployments/private/docker-compose.yaml run -w /root admin /bin/bash
+        docker run -it --rm --name $ETH_ADMIN_NODE -w /root \
+            -v $PWD/deployments/private/network:/root/network \
+            -v $PWD/deployments/private/provision.sh:/root/network/provision.sh \
+            $ETH_NODE_IMAGE_NAME /bin/bash
         ;;
     "boot")
         docker-compose -f ./deployments/private/docker-compose.yaml run -w /root bootnode /bin/bash
@@ -22,7 +26,7 @@ case $COMMAND in
         docker-compose -f ./build/ethnode/builder.yaml build
         ;;
     "clean")
-        docker rm -f $(docker ps -a)
+        docker rm -f ${ETH_ADMIN_NODE}
         docker rmi -f ${ETH_NODE_IMAGE_NAME}
         docker rmi -f $(docker images --filter "dangling=true" -q)
         ;;
