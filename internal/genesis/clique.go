@@ -2,21 +2,51 @@ package genesis
 
 import (
 	"bytes"
-	"encoding/json"
 	"fmt"
-	"math/big"
 	"text/template"
 
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/ethereum/go-ethereum/params"
 )
 
-type CliqueConfig struct {
-	ChainID     int
-	Period      int
-	Epoch       int
-	Signer      string
-	Allocations []AddressBalance
+type SignerAddress string
+
+func (s SignerAddress) String() string {
+	return string(s)
+}
+
+func isValidAddress(sa SignerAddress) bool {
+	return common.IsHexAddress(string(sa))
+}
+
+func cliqueExtraPrefix() string {
+	prefix := "0x"
+	for i := 0; i < 64; i++ {
+		prefix += "0"
+	}
+	return prefix
+}
+
+func cliqueExtraPostfix() string {
+	var postfix string
+	for i := 0; i < 128; i++ {
+		postfix += "0"
+	}
+	return postfix
+}
+
+type CliqueExtraData string
+
+func genCliqueExtraData(signerAddrs []SignerAddress) (CliqueExtraData, error) {
+	prefix := cliqueExtraPrefix()
+	postfix := cliqueExtraPostfix()
+	var s string
+	for _, sa := range signerAddrs {
+		if !isValidAddress(sa) {
+			return "", fmt.Errorf("%w-%s", ErrNotHex, fmt.Sprintf("input value: %s in %s", sa, signerAddrs))
+		}
+		s += sa.String()
+	}
+	return CliqueExtraData(prefix + s + postfix), nil
 }
 
 var fns = template.FuncMap{
@@ -52,7 +82,7 @@ var cliqueConfigTmpl = `
 	},
 	"difficulty": "1",
 	"gasLimit": "800000000",
-	"extradata": "0x0000000000000000000000000000000000000000000000000000000000000000{{ .Signer }}0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+	"extradata": "{{ .ExtraData }}",
 	{{ $size := len .Allocations -}}
 	"alloc":{
 {{- range $i, $a := .Allocations -}}
@@ -65,52 +95,29 @@ var cliqueConfigTmpl = `
 	}
 }`
 
-func cliqueConfigJson(chainID int, period int, epoch int, signer string, allocs []AddressBalance) []byte {
+func GenCliqueJSON(chainID int, period int, epoch int, signers []SignerAddress, allocs []AddressBalance) ([]byte, error) {
 	tmpl := template.Must(template.New("").Funcs(fns).Parse(cliqueConfigTmpl))
-	c := CliqueConfig{
+
+	extra, err := genCliqueExtraData(signers)
+	if err != nil {
+		return nil, err
+	}
+
+	params := struct {
+		ChainID     int
+		Period      int
+		Epoch       int
+		ExtraData   CliqueExtraData
+		Allocations []AddressBalance
+	}{
 		ChainID:     chainID,
 		Period:      period,
 		Epoch:       epoch,
-		Signer:      signer,
+		ExtraData:   extra,
 		Allocations: allocs,
 	}
+
 	var buf bytes.Buffer
-	tmpl.Execute(&buf, c)
-	return buf.Bytes()
-}
-
-func cliqueExtraData(signerAddr string) ([]byte, error) {
-	prefix := "0x00000000000000000000000000000000"
-	postfix := "00000000000000000000000000000000000000000000000000000000000000000"
-	if !common.IsHexAddress(signerAddr) {
-		return nil, fmt.Errorf("%w-%s", ErrNotHex, fmt.Sprintf("input value: %s", signerAddr))
-	}
-	extra := prefix + signerAddr + postfix
-	return []byte(extra), nil
-}
-
-func CreateClique(chainID uint64, period uint64, epoch uint64, difficulty uint64, gasLimit uint64, signerAddr string, addrBals []AddressBalance) ([]byte, error) {
-	genesis := initGenesis()
-	genesis.Config.ChainID = big.NewInt(int64(chainID))
-	genesis.Config.Clique = &params.CliqueConfig{
-		Period: period,
-		Epoch:  epoch,
-	}
-	genesis.Difficulty = big.NewInt(int64(difficulty))
-	genesis.GasLimit = gasLimit
-	eData, err := cliqueExtraData(signerAddr)
-	if err != nil {
-		return nil, err
-	}
-	genesis.ExtraData = eData
-	alloc, err := parseAddressBalances(addrBals)
-	if err != nil {
-		return nil, err
-	}
-	genesis.Alloc = alloc
-	result, err := json.Marshal(genesis)
-	if err != nil {
-		return nil, err
-	}
-	return result, nil
+	tmpl.Execute(&buf, params)
+	return buf.Bytes(), nil
 }
