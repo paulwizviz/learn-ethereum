@@ -1,22 +1,24 @@
 # Overview
 
-Welcome to my collection of original (created by me) and reference to materials (created by others) about Ethereum.
+My brain dump on all things related to Ethereum
 
 ## Ethereum in a nutshell
 
-Ethereum is a kind of transaction-based state machine where each machine is hosted on decentralised and independently executing computing nodes. The machine operations begins with a genesis state and incrementally mutating by executing transactions into some current state.
+Here are extract from a few sources that I believe have summed up the inner workings of Ethereum.
 
-The state can include such information about a physical thing (e.g. house, cars) or an intangible thing (e.g. money, reputation) that can be represented by a computer.
+"Ethereum is a kind of transaction-based state machine where each machine is hosted on decentralised and independently executing computing nodes. The machine operations begins with a genesis state and incrementally mutating by executing transactions into some current state.
 
-A transaction represents a cryptographically signed action (e.g. transfer ownership of a property) initiated by a human or some computational data source via an agent. An agent, also known as ABI (Application Binary Interface) is an interface between the initiator of a transaction and the Ethereum state machine.
+The state can include such information about a physical thing (e.g. house, cars) or an intangible thing (e.g. money, reputation) that can be represented by a computer".
 
-A transaction can be viewed as a connection between two states. It can be viewed as transitioning one state to another valid state or invalid state. A valid state is one where its relationship to prior states is consistent. An invalud state is one that is not consistent with prior states. Each state machine in the network of state machines is responsible for validing transaction. There is no single machine to validate transactions on behalf of every machines.
+"A transaction represents a cryptographically signed action (e.g. transfer ownership of a property) initiated by a human or some computational data source via an agent. An agent, also known as ABI (Application Binary Interface) is an interface between the initiator of a transaction and the Ethereum state machine".
 
-Transactions are collated into blocks through a process known as minimg (via a process known as Proof-of-Work) or minting (via a process known as Proof-of-Stake). The machine are rewarded with a sum of reward denominated in Ether when it collate the transactions into blocks.
+"A transaction can be viewed as a connection between two states. It can be viewed as transitioning one state to another valid state or invalid state. A valid state is one where its relationship to prior states is consistent. An invalud state is one that is not consistent with prior states. Each state machine in the network of state machines is responsible for validing transaction. There is no single machine to validate transactions on behalf of every machines".
 
-Blocks are chained together using a cryptographic hash as a means of reference. Blocks function as a journal, recording a series of transactions together with the previous block and an identifier for the final state.
+"Transactions are collated into blocks through a process known as minimg (via a process known as Proof-of-Work) or minting (via a process known as Proof-of-Stake). The machine are rewarded with a sum of reward denominated in Ether when it collate the transactions into blocks".
 
-For further details, please refer to the following documents:
+"Blocks are chained together using a cryptographic hash as a means of reference. Blocks function as a journal, recording a series of transactions together with the previous block and an identifier for the final state".
+
+The above summary were extracted and paraphreased from these documents:
 
 * [Beige paper](https://github.com/chronaeon/beigepaper/blob/master/beigepaper.pdf)
 * [Yellow paper](https://ethereum.github.io/yellowpaper/paper.pdf)
@@ -57,10 +59,4 @@ For further details, please refer to the following documents:
 
 ## Copyright
 
-Unless otherwise specificed, the copyright in this project are assigned as follows.
-
-Copyright 2022 Paul Sitoh
-
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
-
-http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+Please respect the copyright of the respective contributors and materials referenced here.
