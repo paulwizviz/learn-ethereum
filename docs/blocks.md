@@ -6,10 +6,28 @@ Blocks are batches of transactions with a hash of the previous block in the chai
 
 * [Explaining the Genesis Block in Ethereum](https://arvanaghi.com/blog/explaining-the-genesis-block-in-ethereum/)
 
-## Geth implementation:
+## Geth implementation
 
-* [Genesis struct](https://github.com/ethereum/go-ethereum/blob/afe344bcf31bfb477a6e1ad5b862a70fc5c1a22b/core/genesis.go#L49)
+The aspects of blocks and blockchain implementations are found here:
+
+```
+go-ethereum
+  + core
+    + rawdb
+      + database.go
+      + ...
+    + types
+      + block.go
+      + ...
+    + blockchain.go
+    + genesis.go
+    + ...
+```
+
+* [Blockchain](https://github.com/ethereum/go-ethereum/blob/master/core/blockchain.go)
 * [Block struct](https://github.com/ethereum/go-ethereum/blob/master/core/types/block.go)
+* [Database](https://github.com/ethereum/go-ethereum/blob/master/core/rawdb/database.go)
+* [Genesis struct](https://github.com/ethereum/go-ethereum/blob/master/core/genesis.go)
 
 ## References
 
