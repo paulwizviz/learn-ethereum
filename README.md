@@ -28,29 +28,25 @@ The above summary were extracted and paraphreased from these documents:
 
 ## Topics
 
-<u>Governance</u>
+* Governance
+    * [Introduction to Ethereum governance](https://arvanaghi.com/blog/explaining-the-genesis-block-in-ethereum/)
+    * [Ethereum Improvement Process](https://eips.ethereum.org/all)
 
-* [Introduction to Ethereum governance](https://arvanaghi.com/blog/explaining-the-genesis-block-in-ethereum/)
-* [Ethereum Improvement Process](https://eips.ethereum.org/all)
+* Agent or application developments
+    * [Application](./docs/app.md)
+    * [Smart contracts](./docs/smart.md)
+    * [Wallet](./docs/wallets.md)
 
-</u>Agent or application developments</u>
+* Platform engineering
+    * [Nodes, clients and networks](./docs/network.md)
+    * [Orchestration tools](./docs/orchtool.md)
 
-* [DApp](./docs/dapp.md)
-* [Smart contracts](./docs/smart.md)
-* [Wallet](./docs/wallets.md)
-
-<u>Platform engineering</u>
-
-* [Setting up a node and private network](./docs/network.md)
-* [Orchestration tools](./docs/orchtool.md)
-
-<u>System internals</u>
-
-* [Accounts](./docs/acct.md)
-* [Blocks](./docs/blocks.md)
-* [Cryptographic tools](./docs/crypto.md)
-* [Ethereum Virtual Machine](./docs/evm.md)
-* [Transactions](./docs/txn.md)
+* System internals
+    * [Accounts](./docs/acct.md)
+    * [Blocks](./docs/blocks.md)
+    * [Cryptographic tools](./docs/crypto.md)
+    * [Ethereum Virtual Machine](./docs/evm.md)
+    * [Transactions](./docs/txn.md)
 
 ## Disclaimer
 

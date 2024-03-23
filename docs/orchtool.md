@@ -29,11 +29,11 @@ Clef is a tool for signing transactions and data in a secure local environment[1
 
 Geth is an execution client. Historically, an execution client alone was enough to run a full Ethereum node. However, since Ethereum swapped from proof-of-work (PoW) to proof-of-stake (PoS) based consensus, Geth needs to be coupled to another piece of software called a "consensus client"[source](https://geth.ethereum.org/docs/getting-started/consensus-clients).
 
-<u>Command line</u>
+### Command line
 
 Geth commands and flags are listed [here](https://geth.ethereum.org/docs/interface/command-line-options)
 
-<u>Source code</u>
+### Source code
 
 * [Geth cli entrypoint](https://github.com/ethereum/go-ethereum/blob/de1cecb22e2a18ad70d4cb92bee122f4549c5b79/cmd/geth/main.go#L266). The entry point uses a cli development call [urfave/cli](https://cli.urfave.org/v2/).
 * [List of commands](https://github.com/ethereum/go-ethereum/blob/master/cmd/geth/chaincmd.go)

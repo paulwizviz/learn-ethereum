@@ -11,7 +11,7 @@ ENV PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
 RUN apt-get update && \
     apt-get -y install wget gcc g++ make git nodejs npm protobuf-compiler && \
-    cd /tmp; wget https://dl.google.com/go/go${GO_VER}.linux-amd64.tar.gz && \
+    cd /tmp; wget https://go.dev/dl/go${GO_VER}.linux-amd64.tar.gz && \
     tar -xvf go${GO_VER}.linux-amd64.tar.gz; mv go /usr/local/ && \
     mkdir /opt/workspace; cd /opt/workspace && \
     git clone  --depth 1 --branch ${GETH_VER} https:///github.com/ethereum/go-ethereum; cd /opt/workspace/go-ethereum && \

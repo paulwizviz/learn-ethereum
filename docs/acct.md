@@ -1,16 +1,10 @@
 # Accounts
 
+This section discuss Ethereum accounts.
+
 An Ethereum account is an entity with an ether (ETH) balance that can send transactions on Ethereum. Accounts can be user-controlled or deployed as smart contracts ([source](https://ethereum.org/en/developers/docs/accounts/)).
 
-## Externally Owned Address
 
-An Ethereum address is a 42-character hexadecimal address derived from the last 20 bytes of the public key controlling the account with 0x appended in front. e.g., 0x71C7656EC7ab88b098defB751B7401B5f6d8976F.
-
-The Ethereum address is the "public" address that you would need to receive funds from another party.
-
-## Contract Address
-
-Contract address refers to the address hosting a collection of code on the Ethereum blockchain that executes functions.
 
 ## Geth implementations
 

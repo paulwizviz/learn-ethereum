@@ -1,17 +1,17 @@
-# Cryptography
+# Cryptographic Tools
 
-This section covers cryptographic tools used in Ethereum.
+In this section, you will find references to crytographic tools used in Ethereum.
 
 ## Keccak (SHA-3)
 
 This is a hashing function.
 
 * [Keccak by binance](https://academy.binance.com/en/glossary/keccak)
-
-
 * [Geth source code](https://github.com/ethereum/go-ethereum/blob/master/crypto/crypto.go)
 
 ## Recursive Length Prefix (RLP)
+
+This is a serialization tool.
 
 * [Ethereum Wiki](https://eth.wiki/fundamentals/rlp)
 * [Data structure in Ethereum | Episode 1: Recursive Length Prefix (RLP) Encoding/Decoding.](https://medium.com/coinmonks/data-structure-in-ethereum-episode-1-recursive-length-prefix-rlp-encoding-decoding-d1016832f919)
