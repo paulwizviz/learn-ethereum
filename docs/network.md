@@ -8,15 +8,11 @@ A client is an implementation of Ethereum that verifies data against the protoco
 
 ### Working example
 
-You'll find a working example of a Geth client in this project. Use this `./scripts/gethclient.sh` to work with a container containing a Geth client.
-
-## Networks
-
 Ethereum is a distributed network of computers (known as nodes) running software that can verify blocks and transaction data.
 
 There are several types of networks. Refer to this [list of networks](https://ethereum.org/en/developers/docs/networks/).
 
-### Working example
+### Local docker compose
 
 You will find a [docker compose specification](../deployments/private/docker-compose.yaml) network specification for a four nodes setup.
 
