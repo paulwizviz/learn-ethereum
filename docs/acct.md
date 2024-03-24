@@ -69,3 +69,7 @@ The file contains in a JSON format (representing the account state) looking like
     "version":3
 }
 ```
+
+## Additional references
+
+* [The Transformation of Ethereum Wallet: The Potential and Challenges of Account Abstraction and ERC-4337](https://medium.com/@sevenxventures/the-transformation-of-ethereum-wallet-the-potential-and-challenges-of-account-abstraction-and-c0dbdb384c7e)
