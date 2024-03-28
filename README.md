@@ -38,8 +38,8 @@ The above summary were extracted and paraphreased from these documents:
     * [Wallet](./docs/wallets.md)
 
 * Platform engineering
-    * [Nodes, clients and networks](./docs/network.md)
-    * [Orchestration tools](./docs/orchtool.md)
+    * [Networks](./docs/network.md)
+    * [Geth](./docs/geth.md)
 
 * System internals
     * [Accounts](./docs/acct.md)
