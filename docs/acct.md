@@ -56,7 +56,13 @@ The file contains in a JSON format (representing the account state) looking like
 }
 ```
 
-## Creating account with Geth
+## Account management with Geth
+
+From [Go Account managament](https://geth.ethereum.org/docs/developers/dapp-developer/native-accounts)):
+
+> Once an encrypted keystore for Ethereum accounts exists it, it can be used to manage accounts for the entire account lifecycle requirements of a Go native application. This includes the basic functionality of creating new accounts and deleting existing ones as well as updating access credentials, exporting existing accounts, and importing them on other devices (see.
+
+### Source code
 
 The source code implementing the account related operations are here.
 
@@ -72,10 +78,11 @@ The source code implementing the account related operations are here.
     * [EncryptDataV3](https://github.com/ethereum/go-ethereum/blob/fb3a6528cfa49f623570575c4fe9e8a716cfcdf7/accounts/keystore/passphrase.go#L141)
     * [Keccak256](https://github.com/ethereum/go-ethereum/blob/fb3a6528cfa49f623570575c4fe9e8a716cfcdf7/crypto/crypto.go#L77)
 
-Here is the a working example:
+### Working examples
 
-* [main package](../examples/keystore/main.go)
-* [keystore package](../internal/kstore/kstore.go)
+* Keystore
+    * [main package](../examples/keystore/main.go)
+    * [keystore package](../internal/kstore/kstore.go)
 
 ## ERC-4337
 
