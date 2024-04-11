@@ -50,14 +50,14 @@ In this project you will end working examples demonstrating:
 
 ### Building tools from source codes
 
-I have provided a combination of bash shell script and docker image build script so you can experiement with building tools from source codes in a Linux like environment. The artefacts for this working example are:
+I have provided a combination of bash shell script and docker image build script so you can experiement with building tools from source codes in a Linux like environment. The source codes behind these tools are found here:
 
-* [./build/gethclient](../build/gethclient)
-* [./scripts/gethclient.sh](../scripts/gethclient.sh)
+* [Geth tools](../build/ethnode.dockerfile)
+* [Solidity compiler](../build/solc.dockerfile)
 
 ### Using tools
 
 You can find working examples of `geth` and `clef` in a container. To use these tools, follow these steps:
 
-* STEP -1: Build the docker image, run the command `./scripts/gethclient.sh build`
-* STEP 2: Log into the docker container via shell, run the command `./scripts/gethclient.sh shell`
+* STEP 1: Build the docker image, run the command `./scripts/ops.sh image build`
+* STEP 2: Log into the docker container via shell, run the command `./scripts/ops.sh geth`

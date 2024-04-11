@@ -1,9 +1,0 @@
-version: '3.4'
-
-services:
-
-  ethnode:
-    build:
-      context: ../../
-      dockerfile: ./build/ethnode/ethnode.dockerfile
-    image: ${ETH_NODE_IMAGE_NAME}
