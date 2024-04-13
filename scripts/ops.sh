@@ -6,6 +6,7 @@ if [ "$(basename $(realpath .))" != "learn-ethereum" ]; then
 else
     . ./scripts/images.sh
     . ./scripts/network.sh
+    . ./scripts/solc.sh
 fi
 
 COMMAND=$1
@@ -15,8 +16,11 @@ SUBCOMMAND2=$3
 function image() {
     local cmd=$1
     case $cmd in
-        "build")
-            build_image
+        "build:node")
+            build_node
+            ;;
+        "build:solc")
+            build_solc
             ;;
         "clean")
             clean_image
@@ -25,8 +29,9 @@ function image() {
             echo "Usage: $0 image [comand]
 
 command:
-    build   images
-    clean   all images"
+    build:node   build geth and related images
+    build:solc   build image of solidity compiler from source
+    clean        all images"
             ;;
     esac
 }
@@ -46,6 +51,25 @@ command:
     esac
 }
 
+function solidity(){
+    local cmd=$1
+    case $cmd in
+        "compile")
+            compile_sol
+            ;;
+        "abi")
+            gen_abi
+            ;;
+        *)
+            echo "$0 solidity [command]
+
+command:
+    compile   solidity file in ./solidity
+    abi       generate ABI from solidity file"
+            ;;
+    esac
+}
+
 case $COMMAND in
     "image")
         image $SUBCOMMAND1
@@ -53,14 +77,15 @@ case $COMMAND in
     "network")
         network $SUBCOMMAND1
         ;;
-    "geth")
-        docker run -it --rm ${ETH_NODE_IMAGE_NAME} /bin/sh
+    "solidity")
+        solidity $SUBCOMMAND1
         ;;
     *)
         echo "Usage: $0 <command>
 
 command:
-    image    operation to build or clean images
-    network  operations related to network"
+    image      operation to build or clean images
+    network    operations related to network
+    solidity   operations related to solidity file"
         ;;
 esac

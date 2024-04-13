@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+
+  gethnode:
+    build:
+      context: ../../
+      dockerfile: ./build/node/geth.dockerfile
+      args:
+        GETH_VER: master
+        OS_VER: 3.18
+        GO_VER: 1.22.1-alpine
+    image: ${GETH_NODE_IMAGE_NAME}

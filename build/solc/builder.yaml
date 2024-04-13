@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+
+  solc:
+    build:
+      context: ../../
+      dockerfile: ./build/solc/solc.dockerfile
+      args:
+        OS_VER: 22.04
+        SOLC_VER: v0.8.25
+    image: ${SOLC_IMAGE_NAME}
