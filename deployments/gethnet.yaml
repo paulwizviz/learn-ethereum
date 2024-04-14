@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+
+  admin:
+    image: ${GETH_NODE_IMAGE_NAME}
+    working_dir: /opt
+    container_name: admin
+    command: ./provision.sh
+    volumes:
+      - ./genesis.json:/opt/genesis.json
+      - ./provision.sh:/opt/provision.sh
+      - ./password:/opt/password
+      - vol:/opt
+    networks:
+      - local
+
+networks:
+  local:
+    name: ${NETWORK_NAME}
+
+volumes:
+  vol:
+    name: ${SHARED_VOLUME}

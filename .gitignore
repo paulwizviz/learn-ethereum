@@ -3,3 +3,4 @@
 deployments/private/network
 tmp/
 internal/hello
+deployments/password

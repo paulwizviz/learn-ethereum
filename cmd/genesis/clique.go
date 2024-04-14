@@ -41,7 +41,7 @@ var cliqueNewCmd = &cobra.Command{
 func initCliqueCmd() {
 	cliqueNewCmd.Flags().IntVarP(&cliqueParam.ChainID, "chainid", "c", 12345, "network chain id")
 	cliqueNewCmd.Flags().IntVarP(&cliqueParam.Period, "period", "p", 5, "clique period")
-	cliqueNewCmd.Flags().IntVarP(&cliqueParam.Epoch, "e", "epoch", 30000, "clique epoch")
+	cliqueNewCmd.Flags().IntVarP(&cliqueParam.Epoch, "epoch", "e", 30000, "clique epoch")
 	cliqueNewCmd.Flags().StringVarP(&cliqueParam.SignerAddr, "signer", "s", "", "Address of minter")
 	cliqueNewCmd.Flags().StringVarP(&cliqueParam.AddressBalances, "balance", "b", "", "Address balances \"<addr>:<bal>,<addr>:<bal>,...\"")
 	cliqueNewCmd.Flags().StringVarP(&cliqueParam.output, "output", "o", "genesis.json", "location of genesis.json")

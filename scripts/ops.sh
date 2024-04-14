@@ -16,8 +16,8 @@ SUBCOMMAND2=$3
 function image() {
     local cmd=$1
     case $cmd in
-        "build:node")
-            build_node
+        "build:geth")
+            build_geth
             ;;
         "build:solc")
             build_solc
@@ -29,7 +29,7 @@ function image() {
             echo "Usage: $0 image [comand]
 
 command:
-    build:node   build geth and related images
+    build:geth   build geth and related images
     build:solc   build image of solidity compiler from source
     clean        all images"
             ;;
@@ -39,14 +39,18 @@ command:
 function network(){
     local cmd=$1
     case $cmd in
-        "private")
-            private_network $SUBCOMMAND2
+        "gethnet")
+            geth_network $SUBCOMMAND2
+            ;;
+        "clean")
+            private_network stop
+            remove_volume
             ;;
         *)
             echo "Usage: $0 network [command]
 
 command:
-    private    operations related to private network"
+    gethnet    operations related to geth base network"
             ;;
     esac
 }

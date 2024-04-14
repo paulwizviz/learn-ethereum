@@ -12,14 +12,15 @@ Ethereum is a distributed network of computers (known as nodes) running software
 
 There are several types of networks. Refer to this [list of networks](https://ethereum.org/en/developers/docs/networks/).
 
-### Local docker compose
+## Local network
 
-You will find a [docker compose specification](../deployments/private/docker-compose.yaml) network specification for a four nodes setup.
+Included in this project are docker-compose based networks. You will find a network centred on Geth nodes.
 
-To use the network follow these steps:
+### Geth based network
 
-1. Login to a network admin node via `./scripts/private.sh admin`
-1. Create nodes data folders.
+Here is the project's local [Geth base network](../deployments/gethnet.yaml).
+
+The network is still under development.
 
 ## References
 

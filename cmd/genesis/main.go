@@ -10,8 +10,7 @@ var rootCmd = &cobra.Command{
 	Use:   "genesis",
 	Short: "Genesis is a cli private Ethereum network provisioning tool",
 	Long: `A private Ethereum network provisioning tool.
-		Features:
-			- Create Genesis configuration file`,
+Create Genesis configuration file`,
 	Run: func(cmd *cobra.Command, args []string) {
 		cmd.Help()
 	},

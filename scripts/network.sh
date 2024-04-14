@@ -1,22 +1,32 @@
 #!/bin/bash
 
-export NETWORK_NAME=learn-ethereum_network
+export NETWORK_NAME=learn-ethereum_gethnet
 
-function private_network(){
+export SHARED_VOLUME="gethnet_shared"
+
+function geth_network(){
     local cmd=$1
     case $cmd in
+        "admin")
+            docker-compose -f ./deployments/gethnet.yaml run admin /bin/sh
+            ;;
         "start")
-            docker-compose -f ./deployments/privnet.yaml up
+            docker-compose -f ./deployments/gethnet.yaml up
             ;;
         "stop")
-            docker-compose -f ./deployments/privnet.yaml down
+            docker-compose -f ./deployments/gethnet.yaml down
             ;;
         *)
-            echo "Usage: $0 network private [command]
+            echo "Usage: $0 network gethnet [command]
     
     command:
-        start     private network
-        stop      private network"
+        admin   open up an admin console
+        start   gethnet network
+        stop    gethnet network"
             ;;
     esac
+}
+
+function remove_volume(){
+    docker volume rm ${SHARED_VOLUME}
 }
