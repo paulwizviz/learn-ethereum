@@ -5,7 +5,6 @@ Geth refers to two things:
 * An execution client written in Go.
 * A Go base project to build the Ethereum client.
 
-
 ## Geth as an executing client
 
 Geth is an execution client. Historically, an execution client alone was enough to run a full Ethereum node. However, since Ethereum swapped from proof-of-work (PoW) to proof-of-stake (PoS) based consensus, Geth needs to be coupled to another piece of software called a ["consensus client"](https://geth.ethereum.org/docs/getting-started/consensus-clients).

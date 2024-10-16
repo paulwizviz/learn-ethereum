@@ -9,7 +9,6 @@ There are two well known types of Ethereum accounts:
 
 There is another "official" contract-based version known as [ERC 4337](https://eips.ethereum.org/EIPS/eip-4337) also called "Account abstraction".
 
-
 ## Creating an EOA using Clef
 
 Please refer to [Clef official documentation](https://geth.ethereum.org/docs/tools/clef/introduction).
