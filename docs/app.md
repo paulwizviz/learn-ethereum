@@ -2,12 +2,11 @@
 
 In this section, we discuss techniques to build Web3 application.
 
-## Architecture
+Here we identified three approaches:
 
-* [The Architecture of a Web 3.0 application](https://www.preethikasireddy.com/post/the-architecture-of-a-web-3-0-application)
-* [What are dApps: A 2021 guide to decentralized applications](https://limechain.tech/blog/what-are-dapps-the-2021-guide/)
-* [What Are Decentralized Apps?](https://www.gemini.com/cryptopedia/decentralized-applications-defi-dapps)
-* [Introduction to DApp](https://ethereum.org/en/developers/docs/dapps/)
+* [Web3.js](#web3js---javascript-api-libraries)
+* [JSON-RRPC](#json-rpc-api)
+* [Go ABI from Solidity](#go-abi-from-solidity)
 
 ## Web3.js - Javascript API Libraries
 
@@ -18,28 +17,17 @@ In this section, we discuss techniques to build Web3 application.
 
 * [Ethereum JSON-RPC Specification](https://playground.open-rpc.org/?schemaUrl=https://raw.githubusercontent.com/ethereum/eth1.0-apis/assembled-spec/openrpc.json&uiSchema%5BappBar%5D%5Bui:splitView%5D=false&uiSchema%5BappBar%5D%5Bui:input%5D=false&uiSchema%5BappBar%5D%5Bui:examplesDropdown%5D=false)
 
-## Solidity
+## Go ABI from Solidity
 
-* [Official Reference](https://soliditylang.org/)
-* [Deploy Your First Smart Contract](https://www.web3.university/tracks/create-a-smart-contract/deploy-your-first-smart-contract)
-* [Smart Contract with Golang](https://medium.com/nerd-for-tech/smart-contract-with-golang-d208c92848a9)
+This approach involves generating source Go ABI from solidity contract using a Geth tool call [abigen](./geth.md).
 
-### Compiling solidity code
+### Working example
 
-To compile solidity, you will need a solidity compiler. You can find them in many tools such as [Remix](https://remix.ethereum.org/) or [Hardhat](https://hardhat.org/). 
+Step 1: Build an image containing `abigen` by running the command: `./scripts/ops.sh image build:node`. 
 
-You can also download compiler or build one from source. Here is a [working example](../build/solc/solc.dockerfile) demonstrating the steps to build from source. To build the compiler image run the command `./scripts/ops.sh image build:solc`.
+Step 2: Using the `HelloWorld` solidity contract as an example, the proceess for generating a Go ABI is [here](../scripts/solc.sh). To see a working example of a generated binding, run the command `./scripts/ops.sh solidity abi` and this will generate a packge `internal/hello`.
 
-To help you appreciate the process of compiling solidity file (see [./solidity/HelloWorld.sol](../solidity/HelloWorld.sol)), please refer to this [script](../scripts/solc.sh). Run the command `./script/ops.sh solidity compile` and this will produce an `HelloWorld.abi` and `HelloWorld.bin`. 
-
-
-## Developing Go-based Application
-
-The first step in building a Go-based application is to generate a Go binding of the solidity contract from the contract abi file. Geth provides a tool call [abigen](./geth.md). You can find an instance of the tool by building an image running this command: `./scripts/ops.sh image build:node`. 
-
-Using the `HelloWorld` solidity contract as an example, the proceess for generating a Go-binding is [here](../scripts/solc.sh). To see a working example of a generated binding, run the command `./scripts/ops.sh solidity abi` and this will generate a packge `internal/hello`.
-
-A key aspect of building application capable of interacting with a deployed contract is to be able to connect to a node in the Ethereum network. You need to dial a connection. Here is the step:
+Step 3: Build application capable of interacting with a deployed contract is to be able to connect to a node in the Ethereum network. You need to dial a connection. Here is the step:
 
 ```go
 import "github.com/ethereum/go-ethereum/ethclient"
@@ -51,3 +39,10 @@ conn, err := ethclient.Dial(nodeurl)
 contract, err := hello.NewHelloWorld("<contract address>", conn)
 
 ```
+
+## References
+
+* [The Architecture of a Web 3.0 application](https://www.preethikasireddy.com/post/the-architecture-of-a-web-3-0-application)
+* [What are dApps: A 2021 guide to decentralized applications](https://limechain.tech/blog/what-are-dapps-the-2021-guide/)
+* [What Are Decentralized Apps?](https://www.gemini.com/cryptopedia/decentralized-applications-defi-dapps)
+* [Introduction to DApp](https://ethereum.org/en/developers/docs/dapps/)
