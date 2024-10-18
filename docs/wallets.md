@@ -9,13 +9,7 @@ Wallets are further divided into:
 
 ## Non-deterministic wallet (keystore file)
 
-A non-deterministic wallet store stores encrypted private keys.
-
-* Keystore
-
-### Keystore file
-
-In this case, the wallet is in the form of JSON file. Generated using `Geth`. In this example the operation is to decrypt encrypted private key from the keystore.
+A non-deterministic wallet store stores encrypted private keys via keystore (i.e. JSON) file in a format as shown:
 
 ```json
 {
@@ -42,7 +36,11 @@ In this case, the wallet is in the form of JSON file. Generated using `Geth`. In
     "version": 3
 }
 ```
-The source code for this example is found [here](../examples/keystore/main.go)
+### Working examples
+
+* Example 1 - This [example](../examples/wallets/ndw/ex1/main.go) demonstrates an operation to create a keystore with a default private key.
+
+* Example 2 - This [example](../examples/wallets/ndw/ex2/main.go) demonstrates operations to create a private key and then import into a keystore.
 
 ## Deterministic Wallet
 
