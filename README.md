@@ -1,6 +1,6 @@
 # Overview
 
-My brain dump on all things related to Ethereum
+This project contains my analysis with working examples to dissect the inner workings and techniques to build applications based on Ethereum.
 
 ## Topics
 
@@ -36,7 +36,8 @@ My brain dump on all things related to Ethereum
 
 ## Disclaimer
 
-* The contents in this project are intended for educational purpose only.
+* The contents in this project are intended for educational, experimentation and/or solicit discussion only.
+* The content here are **not** are not intended for mission critical or production environment, if you chose to use any aspect of the content, you do so at your own risk.
 * This contents are constantly updated and items may be removed and modified without warning.
 
 ## Copyright
