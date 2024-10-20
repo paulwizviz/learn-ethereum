@@ -5,20 +5,20 @@ This project contains my analysis with working examples to dissect the inner wor
 ## Topics
 
 * Agent or application developments
-    * [Application](./docs/app.md)
-    * [Smart contracts](./docs/smart.md)
+    * [Application](./apps/doc.md)
+    * [Smart contracts](./smart/doc.md)
     * [Wallet](./wallets/doc.md)
 
 * Platform engineering
-    * [Networks](./docs/network.md)
-    * [Geth](./docs/geth.md)
+    * [Networks](./network/doc.md)
+    * [Geth](./geth/doc.md)
 
 * System internals
-    * [Accounts](./docs/acct.md)
-    * [Blocks](./docs/blocks.md)
-    * [Cryptographic tools](./crypto/crypto.md)
-    * [Ethereum Virtual Machine](./docs/evm.md)
-    * [Transactions](./docs/txn.md)
+    * [Accounts](./acct/doc.md)
+    * [Blocks](./blocks/doc.md)
+    * [Cryptographic tools](./crypto/doc.md)
+    * [Ethereum Virtual Machine](./evm/doc.md)
+    * [Transactions](./txn/doc.md)
 
 ## References
 

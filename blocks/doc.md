@@ -6,7 +6,7 @@ Blocks are batches of transactions with a hash of the previous block in the chai
 
 * [Explaining the Genesis Block in Ethereum](https://arvanaghi.com/blog/explaining-the-genesis-block-in-ethereum/)
 
-## Geth implementation
+### Analysis of Geth implementation
 
 The aspects of blocks and blockchain implementations are found here:
 
@@ -29,6 +29,3 @@ go-ethereum
 * [Database](https://github.com/ethereum/go-ethereum/blob/master/core/rawdb/database.go)
 * [Genesis struct](https://github.com/ethereum/go-ethereum/blob/master/core/genesis.go)
 
-## References
-
-* [How it works](https://www.youtube.com/watch?v=AjAinVsJUA0)
