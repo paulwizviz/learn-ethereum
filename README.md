@@ -10,8 +10,10 @@ This project contains my analysis with working examples to dissect the inner wor
     * [Wallet](./wallets/doc.md)
 
 * Platform engineering
+    * [Client](./client/doc.md)
+        * [Geth](./client/geth.md)
     * [Networks](./network/doc.md)
-    * [Geth](./geth/doc.md)
+        * [Local](./network/local.md)
 
 * System internals
     * [Accounts](./acct/doc.md)
