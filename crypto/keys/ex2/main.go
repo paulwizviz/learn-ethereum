@@ -1,25 +1,35 @@
-// This example uses the Geth library.
+// This example uses btcsuite to generate ECC private key
 
 package main
 
 import (
+	"bytes"
 	"fmt"
+	"log"
 
 	"github.com/ethereum/go-ethereum/crypto"
 )
 
 func main() {
-	// Generate a private key using secp256k1
-	privateKey, err := crypto.GenerateKey()
+
+	// Create private key using Geth crypto
+	privKey, err := crypto.GenerateKey()
 	if err != nil {
 		fmt.Println("Error generating private key:", err)
 		return
 	}
 
-	// Get the public key from the private key
-	publicKey := privateKey.PublicKey
+	log.Printf("Private key - Type: %T\n", privKey)
+	log.Printf("Curve: %[1]v Type: %[1]T\n", privKey.Curve)
+	log.Printf("D: %[1]v Type: %[1]T\n", privKey.D)
+	log.Printf("X: %[1]v Type: %[1]T\n", privKey.X)
+	log.Printf("Y: %[1]v Type: %[1]T\n", privKey.Y)
 
-	// Print the private and public keys
-	fmt.Printf("Private Key: %x\n", crypto.FromECDSA(privateKey))
-	fmt.Printf("Public Key: %x\n", crypto.FromECDSAPub(&publicKey))
+	log.Printf("Public key - Type: %T\n", privKey.PublicKey)
+	log.Printf("Curve: %[1]v Type: %[1]T\n", privKey.PublicKey.Curve)
+	log.Printf("X: %[1]v Type: %[1]T\n", privKey.PublicKey.X)
+	log.Printf("Y: %[1]v Type: %[1]T\n", privKey.PublicKey.Y)
+
+	log.Println(bytes.Equal(privKey.D.Bytes(), crypto.FromECDSA(privKey)))
+
 }

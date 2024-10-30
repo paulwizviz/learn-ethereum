@@ -1,25 +1,32 @@
-// This example uses btcsuite to generate ECC private key
+// This example uses the Geth library.
 
 package main
 
 import (
+	"bytes"
+	"crypto/ecdsa"
+	"crypto/rand"
 	"fmt"
+	"log"
 
-	"github.com/btcsuite/btcd/btcec/v2"
+	"github.com/ethereum/go-ethereum/crypto"
 )
 
 func main() {
-	// Create private key
-	privateKey, err := btcec.NewPrivateKey()
+
+	// Generate key using crypto/ecdsa
+	privKey, err := ecdsa.GenerateKey(crypto.S256(), rand.Reader)
 	if err != nil {
 		fmt.Println("Error generating private key:", err)
 		return
 	}
 
-	// 2. Extract the public key
-	publicKey := privateKey.PubKey()
+	log.Printf("Private key - Type: %T\n", privKey)
+	log.Printf("Curve: %[1]v Type: %[1]T\n", privKey.Curve)
+	log.Printf("D: %[1]v Type: %[1]T\n", privKey.D)
+	log.Printf("X: %[1]v Type: %[1]T\n", privKey.X)
+	log.Printf("Y: %[1]v Type: %[1]T\n", privKey.Y)
 
-	// 3. Print the private and public keys
-	fmt.Printf("Private Key: %x\n", privateKey.Serialize())
-	fmt.Printf("Public Key: %x\n", publicKey.SerializeUncompressed())
+	log.Println(bytes.Equal(privKey.D.Bytes(), crypto.FromECDSA(privKey)))
+
 }

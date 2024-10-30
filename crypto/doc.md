@@ -2,14 +2,14 @@
 
 In this section, you will find references to crytographic tools used in Ethereum.
 
-## Elliptic Curve Keys
+## Keys
 
-Ethereum and Bitcoin both use the same elliptic curve, secp256k1, for generating and verifying cryptographic keys.
+Ethereum and Bitcoin both use the same elliptic curve, `secp256k1`, for generating and verifying cryptographic keys.
 
 ### Working examples
 
-* Example 1 - This [example](./keys/ex1/main.go) use `btcsuite` to generate `secp256k1` keys.
-* Example 2 - This [example](./keys/ex2/main.go) use `ethereum/go-ethereum/crypto` to generate `secp256k1` keys.
+* [Example 1](./keys/ex1/main.go) use `standard lib crypto and geth` to generate keys.
+* [Example 2](./keys/ex2/main.go) use `ethereum/go-ethereum/crypto` to generate keys.
 
 ## Keccak (SHA-3)
 
