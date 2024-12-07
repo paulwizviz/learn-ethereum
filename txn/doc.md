@@ -8,6 +8,59 @@ There are
 * Advance transactions (calling a contract)
 * Combining several transactions (contract calling other contracts)
 
+## Transaction Fees
+
+### EIP-1559
+
+A transaction pricing mechanism that includes fixed-per-block network fee that is burned and dynamically expands/contracts block sizes to deal with transient congestion.
+
+GasFeeCap (also referred to as maxFeePerGas in EIP-1559) is a parameter introduced in Ethereum’s London upgrade to define the maximum total fee per gas unit that a user is willing to pay for a transaction.
+
+It is used in the dynamic fee model introduced by EIP-1559 to separate transaction fees into two components:
+
+1. Base Fee: A mandatory fee burned by the network, dynamically adjusted based on network demand.
+1. Priority Fee (Tip): An optional fee paid to miners to prioritize the transaction.
+
+*Purpose of GasFeeCap*
+
+* Caps Total Cost: GasFeeCap ensures that users don’t pay more than a specified amount per gas unit, even if the network fee (base fee) increases significantly during transaction execution.
+* Defines the Upper Limit: The actual gas price paid per unit of gas is:
+
+`Effective Gas Price= min(GasFeeCap,Base Fee + GasTipCap)`
+
+* GasTipCap is the tip (priority fee) offered to miners.
+* Base Fee is adjusted by the network.
+
+*Key Characteristics*
+
+* Measured in Wei (the smallest Ether unit).
+* Protects users from excessive fees in case of network congestion.
+* Can be thought of as a safety cap to control the maximum transaction cost.
+
+*When is GasFeeCap Used?*
+
+* In EIP-1559 dynamic fee transactions (Type 0x2 transactions).
+* Replaces the old gasPrice field used in legacy transactions.
+
+*Example: Gas Fee Calculation*
+
+Assumptions:
+	•	Base Fee = 50 Gwei
+	•	GasTipCap (Priority Fee) = 2 Gwei
+	•	GasFeeCap = 70 Gwei
+
+Calculation:
+
+1.	Base Fee + Tip:
+
+`Base Fee + GasTipCap = 50 + 2 = 52Gwei`
+
+2.	Compare with GasFeeCap:
+
+`Effective Gas Price = min(GasFeeCap, Base Fee + GasTipCap) = min(70, 52) = 52Gwei`
+
+The transaction will execute with an effective gas price of 52 Gwei.
+
 ## Geth implementation:
 
 Package in `core/types`.
