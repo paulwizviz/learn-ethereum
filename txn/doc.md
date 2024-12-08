@@ -84,7 +84,7 @@ Purpose of GasTipCap.
 2. **Transaction Priority**: Higher GasTipCap values increase the likelihood of a transaction being included in the next block, especially in congested conditions.
 3. **User Control**: Lets users specify how much extra they are willing to pay beyond the mandatory base fee.
 
-### GasFeeCap*
+### GasFeeCap
 
 `GasFeeCap` (also referred to as maxFeePerGas in EIP-1559) is a parameter introduced in Ethereum’s London upgrade to define the maximum total fee per gas unit that a user is willing to pay for a transaction. This ensures that users don’t pay more than a specified amount per gas unit, even if the network fee (base fee) increases significantly during transaction execution. Can be thought of as a safety cap to control the maximum transaction cost. It is measured in `wei`.
 
