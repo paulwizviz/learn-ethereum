@@ -37,12 +37,12 @@ This project contains my analysis with working examples to dissect the inner wor
     * [Introduction - EVM based Blockchain Development (Ethereum)](https://www.youtube.com/watch?v=XTbd5w0AXc4&list=PLvfQp12V0hS1LmcDq23mdocEaMVHtp_IK)
 
 * Working Examples
-    * [Go Ethereum Application](https://github.com/paulwizviz/go-eth-app.git)
+    * [Go Ethereum dApp/Web3 application](https://github.com/paulwizviz/go-eth-app.git)
 
 ## Disclaimer
 
 * The contents in this project are intended for educational, experimentation and/or solicit discussion only.
-* The content here are **not** are not intended for mission critical or production environment, if you chose to use any aspect of the content, you do so at your own risk.
+* The content here are **not** intended for mission critical or production environment, if you chose to use any aspect of the content, you do so at your own risk.
 * This contents are constantly updated and items may be removed and modified without warning.
 
 ## Copyright
