@@ -84,22 +84,16 @@ The components are as follows:
 
 Building components from source please refer to [this working example](../build/ethnode.dockerfile).
 
+## Geth client
+
+* [Getting started](https://geth.ethereum.org/docs/getting-started)
+* [Fundamentals](https://geth.ethereum.org/docs/fundamentals)
+* [Interacting with Geth](https://geth.ethereum.org/docs/interacting-with-geth/rpc)
+* [Developers](https://geth.ethereum.org/docs/developers)
+* [Monitoring](https://geth.ethereum.org/docs/monitoring/dashboards)
+
 ## Tools
 
-To learn to use tools, please refer to the following.
-
-### Geth
-
-Geth commands and flags are listed [here](https://geth.ethereum.org/docs/interface/command-line-options)
-
-### Clef
-
-Clef is a tool for signing transactions and data in a secure local environment. It is intended to become a more composable and secure replacement for Geth's built-in account management (see [Introduction to Clef](https://geth.ethereum.org/docs/tools/clef/introduction)).
-
-### Abigen
-
-Abigen is a binding-generator for easily interacting with Ethereum using Go. Abigen creates easy-to-use, type-safe Go packages from Ethereum smart contract definitions known as ABIs (see [https://geth.ethereum.org/docs/tools/abigen](https://geth.ethereum.org/docs/tools/abigen)).
-
-### devp2p
-
-DevP2P is a set of network protocols that form the Ethereum peer-to-peer network. The DevP2P specifications define precisely how nodes should find each other and communicate. Geth implements the DevP2P specifications in Go (see [devp2p](https://geth.ethereum.org/docs/tools/devp2p)).
+* [Abigen](https://geth.ethereum.org/docs/tools/abigen) - A binding-generator for easily interacting with Ethereum using Go
+* [Clef](https://geth.ethereum.org/docs/tools/clef/introduction) - A tool for signing transactions and data in a secure local environment
+* [DevP2P](https://geth.ethereum.org/docs/tools/devp2p) - The DevP2P specifications define precisely how nodes should find each other and communicate.
