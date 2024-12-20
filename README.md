@@ -11,7 +11,7 @@ This project contains my analysis with working examples to dissect the inner wor
 
 * Platform engineering
     * [Client](./client/doc.md)
-        * [Geth](./client/geth.md)
+        * [Geth](./geth/doc.md)
     * [Networks](./network/doc.md)
         * [Local](./network/local.md)
 

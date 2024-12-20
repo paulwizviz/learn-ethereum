@@ -2,6 +2,7 @@
 
 export GETH_NODE_IMAGE_NAME="learn-ethereum/gethnode:current"
 export SOLC_IMAGE_NAME="learn-ethereum/solc:current"
+export GETH_TOOLS_IMAGE_NAME="go-eth-app/gethtool:current"
 
 function build_geth() {
     docker-compose -f ./build/node/builder.yaml build
