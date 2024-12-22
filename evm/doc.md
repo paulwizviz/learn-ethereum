@@ -115,7 +115,7 @@ The Ethereum Virtual Machine (EVM) evolves with each major Ethereum network upgr
     * Files:
         * `state_object.go`:
             * Represents accounts and manages their associated data (e.g., storage, balance).
-        * `state_db.go`:
+        * `statedb.go`:
             * Provides an interface for reading and writing state changes to the database.
 
 4.	ABI Interaction
