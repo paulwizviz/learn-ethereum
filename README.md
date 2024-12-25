@@ -6,7 +6,6 @@ This project contains my analysis with working examples to dissect the inner wor
 
 * Agent or application developments
     * [Application](./apps/doc.md)
-    * [Smart contracts](./smart/doc.md)
     * [Wallet](./wallets/doc.md)
 
 * Platform engineering
@@ -20,6 +19,7 @@ This project contains my analysis with working examples to dissect the inner wor
     * [Blocks](./blocks/doc.md)
     * [Cryptographic tools](./crypto/doc.md)
     * [Ethereum Virtual Machine](./evm/doc.md)
+        * [Solidity](./evm/solidity.md)
     * [Transactions](./txn/doc.md)
 
 ## References

@@ -1,6 +1,6 @@
 # Ethereum Virtual Machine (EVM)
 
-EVM is a decentralised execution environment that execute compiled version of Smart Contract code written in Solidity, Vyper, etc. 
+EVM is a decentralised execution environment that execute compiled version of Smart Contract code written in Solidity, Vyper, etc. A "smart contract" is simply a program that runs on the Ethereum blockchain. It's a collection of code (its functions) and data (its state) that resides at a specific address on the Ethereum blockchain.
 
 ## Core Functions
 
